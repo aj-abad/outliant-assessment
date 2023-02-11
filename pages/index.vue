@@ -1,8 +1,8 @@
 <template>
   <div>
     <main class="custom-container py-20 grid grid-cols-12 gap-24">
-      <div class="col-span-6 pt-[16.67%]">
-        <h1 class="font-semibold text-6xl leading-tight mb-4">
+      <div class="col-span-5 pt-[16.67%]">
+        <h1 class="font-semibold text-7xl leading-tight mb-4">
           Lorem ipsum <br />
           dolor sit amet <br />
           consectetur
@@ -16,7 +16,7 @@
           <UIButton variant="outlined" type="button"> See workspace </UIButton>
         </div>
       </div>
-      <div class="col-span-6">
+      <div class="col-start-7 col-span-6">
         <div class="w-full aspect-[1/1] relative" role="presentation">
           <div class="absolute w-5/6 aspect-[1/1] bottom-0 left-0 bg-img-1"></div>
           <div class="absolute w-3/6 aspect-[1/1] top-0 right-0 bg-img-2"></div>

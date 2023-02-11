@@ -9,13 +9,16 @@
               <h1 class="select-none font-semibold text-2xl md:text-4xl shrink-0">
                 Logo <span class="text-img-1 font-bold">.</span>
               </h1>
-              <UIButton variant="outlined" @click="isOpen = false" aria-label="Close navigation menu">
+              <UIButton
+                variant="outlined"
+                @click="isOpen = false"
+                aria-label="Close navigation menu">
                 <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </UIButton>
             </div>
-            <nav class="flex flex-col divide-y">
+            <nav id="sidebar-nav" class="flex flex-col divide-y font-medium">
               <NuxtLink to="/" class="p-4" @click="isOpen = false">Home</NuxtLink>
               <a href="#" class="block p-4" @click="isOpen = false">About</a>
               <a href="#" class="block p-4" @click="isOpen = false">Services</a>
@@ -72,19 +75,21 @@ function openModal() {
 </script>
 
 <style scoped>
-#app-nav a {
+#app-nav a,
+#sidebar-nav a {
   position: relative;
   &:not(.router-link-active) {
     @apply text-text text-opacity-50;
   }
-  &.router-link-active::before {
-    content: "";
-    background: currentColor;
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 2px;
-  }
+}
+
+#app-nav a.router-link-active::before {
+  content: "";
+  background: currentColor;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
 }
 </style>

@@ -2,6 +2,7 @@
   <div class="bg-light text-text">
     <AppNav />
     <NuxtPage />
+    <AppFooter />
   </div>
 </template>
 

@@ -2,8 +2,8 @@
   <main class="custom-container py-20 overflow-hidden">
     <header class="grid grid-cols-12 xl:gap-24 gap-4 mb-16">
       <div class="col-span-12 xl:col-span-6">
-        <div class="flex align-end">
-          <h1 class="large-responsive-heading mr-8 font-semibold">Products</h1>
+        <div class="md:flex align-end">
+          <h1 class="large-responsive-heading mr-8 font-semibold mb-4 md:mb-0">Products</h1>
           <div class="contents" id="product-search-teleport"></div>
         </div>
       </div>

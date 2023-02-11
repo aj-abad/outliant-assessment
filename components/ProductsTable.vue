@@ -86,7 +86,7 @@
         v-model="searchKeyword"
         @input="setFilteredProducts()"
         type="text"
-        class="block grow border-2 border-low-emphasis rounded-md outline-none text-xl px-4 py-2 font-medium"
+        class="block w-full border-2 border-low-emphasis rounded-md outline-none text-xl px-4 py-2 font-medium"
         placeholder="Search for keywords"
         aria-label="Search for keywords" />
     </Teleport>

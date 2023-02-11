@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main class="container py-20 grid grid-cols-12 gap-24">
+    <main class="custom-container py-20 grid grid-cols-12 gap-24">
       <div class="col-span-6 pt-[16.67%]">
         <h1 class="font-semibold text-6xl leading-tight mb-4">
           Lorem ipsum <br />
@@ -24,7 +24,7 @@
       </div>
     </main>
 
-    <section class="container grid grid-cols-12 gap-16 py-20">
+    <section class="custom-container grid grid-cols-12 gap-16 py-20">
       <div class="col-span-3">
         <h2 class="text-2xl font-semibold mb-4">Header Text</h2>
         <p class="text-low-emphasis text-lg font-medium">
@@ -49,7 +49,7 @@
 
     <div class="pt-20" style="--inset-margin: 6rem">
       <section class="bg-secondary pb-20" style="box-shadow: inset 0 var(--inset-margin) white">
-        <div class="container grid grid-cols-12 gap-24">
+        <div class="custom-container grid grid-cols-12 gap-24">
           <div class="col-span-5">
             <div class="w-full aspect-[1/1] bg-img-1" role="presentation"></div>
           </div>

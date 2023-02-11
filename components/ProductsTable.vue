@@ -40,7 +40,7 @@
           {{
             productToUpdate
               ? `Editing "${products.find((p) => p.id === productToUpdate).name}"`
-              : "Add product"
+              : "Add a product"
           }}
         </h3>
         <p class="font-medium text-low-emphasis mb-8 text-xl">
@@ -67,7 +67,7 @@
             type="submit"
             class="w-full"
             :disabled="isOperationRunning">
-            {{ productToUpdate ? "Update" : "Add" }} product
+            {{ productToUpdate ? "Save" : "Create" }} product
           </UIButton>
           <UIButton
             v-if="productToUpdate"

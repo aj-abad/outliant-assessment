@@ -1,15 +1,15 @@
 <template>
-  <main class="custom-container py-20">
-    <header class="grid grid-cols-12 gap-24 mb-16">
-      <div class="col-span-12 lg:col-span-6">
-        <div class="flex align-baseline">
-          <h1 class="text-6xl mr-16 font-semibold">Products</h1>
+  <main class="custom-container py-20 overflow-hidden">
+    <header class="grid grid-cols-12 xl:gap-24 gap-4 mb-16">
+      <div class="col-span-12 xl:col-span-6">
+        <div class="flex align-end">
+          <h1 class="large-responsive-heading mr-8 font-semibold">Products</h1>
           <div class="contents" id="product-search-teleport"></div>
         </div>
       </div>
     </header>
-    <div class="grid grid-cols-12 gap-24">
-      <div class="col-span-6">
+    <div class="grid grid-cols-12 xl:gap-24 gap-4">
+      <div class="xl:col-span-6 order-last xl:order-first col-span-12">
         <Suspense>
           <ProductsTable />
           <template #fallback>
@@ -19,7 +19,7 @@
           </template>
         </Suspense>
       </div>
-      <div class="col-start-8 col-span-5">
+      <div class="xl:col-start-8 xl:col-span-5 col-span-12 order-first xl:order-last">
         <div id="product-form-teleport"></div>
       </div>
     </div>

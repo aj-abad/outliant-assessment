@@ -1,35 +1,37 @@
 <template>
-  <table class="w-full table-auto" v-if="products.length">
-    <thead>
-      <tr>
-        <th class="p-4 bg-secondary text-left">Name</th>
-        <th class="p-4 bg-secondary text-right">Price</th>
-        <th class="p-4 bg-secondary text-left">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="product in products" :key="product.id">
-        <td class="p-4 text-left">{{ product.name }}</td>
-        <td class="p-4 text-right">
-          {{ product.price.toLocaleString("en-US", { style: "currency", currency: "USD" }) }}
-        </td>
-        <td class="p-4 text-left">
-          <UIButton
-            class="mr-4"
-            variant="outlined"
-            type="button"
-            @click="setProductToUpdate(product.id)">
-            Edit
-          </UIButton>
-          <UIButton @click="deleteProductHandler(product.id)" variant="outlined" type="button">
-            Delete
-          </UIButton>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div v-if="productsToShow.length > 0">
+    <table class="w-full table-auto">
+      <thead>
+        <tr>
+          <th class="p-4 bg-secondary text-left">Name</th>
+          <th class="p-4 bg-secondary text-right">Price</th>
+          <th class="p-4 bg-secondary text-left">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="product in productsToShow" :key="product.id">
+          <td class="p-4 text-left">{{ product.name }}</td>
+          <td class="p-4 text-right">
+            {{ product.price.toLocaleString("en-US", { style: "currency", currency: "USD" }) }}
+          </td>
+          <td class="p-4 text-left">
+            <UIButton
+              class="mr-4"
+              variant="outlined"
+              type="button"
+              @click="setProductToUpdate(product.id)">
+              Edit
+            </UIButton>
+            <UIButton @click="deleteProductHandler(product.id)" variant="outlined" type="button">
+              Delete
+            </UIButton>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <div v-else class="bg-secondary p-8">
-    <p class="font-medium text-xl">No products found.</p>
+    <p class="font-medium text-xl">No products found</p>
   </div>
   <ClientOnly>
     <Teleport to="#product-form-teleport">
@@ -79,16 +81,41 @@
         </form>
       </div>
     </Teleport>
+    <Teleport to="#product-search-teleport">
+      <input
+        v-model="searchKeyword"
+        @input="setFilteredProducts()"
+        type="text"
+        class="block grow border-2 border-low-emphasis rounded-md outline-none text-xl px-4 py-2 font-medium"
+        placeholder="Search for keywords"
+        aria-label="Search for keywords" />
+    </Teleport>
   </ClientOnly>
 </template>
 
 <script setup lang="ts">
+import { useDebounceFn } from "@vueuse/core";
+
 const products = ref<Product[]>([]);
+const filteredProducts = ref<Product[] | null>(null);
 const getProducts = inject<() => Promise<Product[]>>("getProducts");
 const upsertProduct = inject<(product: Product) => Promise<Product>>("upsertProduct");
 const deleteProduct = inject<(id: string) => Promise<void>>("deleteProduct");
-
 products.value = await getProducts();
+
+const productsToShow = computed(() => filteredProducts.value ?? products.value);
+
+const searchKeyword = ref("");
+
+const setFilteredProducts = useDebounceFn(() => {
+  if (!searchKeyword.value) {
+    filteredProducts.value = null;
+    return;
+  }
+  filteredProducts.value = products.value.filter((p) =>
+    p.name.toLowerCase().includes(searchKeyword.value.toLowerCase())
+  );
+}, 500);
 
 const isOperationRunning = ref(false);
 

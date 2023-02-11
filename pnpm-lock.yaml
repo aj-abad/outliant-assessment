@@ -5,9 +5,11 @@ specifiers:
   '@vueuse/core': ^9.4.0
   nuxt: 3.0.0-rc.12
   sass: ^1.57.1
+  uuid: ^9.0.0
 
 dependencies:
   '@vueuse/core': 9.12.0
+  uuid: 9.0.0
 
 devDependencies:
   '@nuxtjs/tailwindcss': 6.3.0
@@ -5354,6 +5356,11 @@ packages:
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+    dev: false
 
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}

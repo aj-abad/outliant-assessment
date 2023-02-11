@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-container py-4 md:py-8 flex items-center">
+  <div class="custom-container py-4 md:py-8 flex items-center sticky top-0 bg-light z-20">
     <h1 class="select-none font-semibold text-2xl md:text-4xl shrink-0">
       Logo <span class="text-img-1 font-bold">.</span>
     </h1>
